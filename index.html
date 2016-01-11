@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="description" content="Dashing-GitHub pullrequests : Dashing-JS GitHub PullRequest widget">
+
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+    <title>Dashing-GitHub pullrequests</title>
+  </head>
+
+  <body>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/kj187/dashing-github_pullrequests">View on GitHub</a>
+
+          <h1 id="project_title">Dashing-GitHub pullrequests</h1>
+          <h2 id="project_tagline">Dashing-JS GitHub PullRequest widget</h2>
+
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/kj187/dashing-github_pullrequests/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/kj187/dashing-github_pullrequests/tarball/master">Download this project as a tar.gz file</a>
+            </section>
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <h1>
+<a id="github-pullrequest-widget" class="anchor" href="#github-pullrequest-widget" aria-hidden="true"><span class="octicon octicon-link"></span></a>GitHub PullRequest widget</h1>
+
+<p>Author: <a href="https://github.com/kj187">Julian Kleinhans</a> · Blog: <a href="http://blog.kj187.de">http://blog.kj187.de</a></p>
+
+<p><a href="https://github.com/fabiocaseri/dashing-js">Dashing-JS</a> is a NodeJS port of <a href="http://dashing.io/">Dashing</a>, an Sinatra based framework that lets you build beautiful dashboards.</p>
+
+<p>The GitHub PullRequest widget is a widget which provides a list of configured repositories and the amount of current open Pull Requests. </p>
+
+<h2>
+<a id="preview" class="anchor" href="#preview" aria-hidden="true"><span class="octicon octicon-link"></span></a>Preview</h2>
+
+<p><img src="http://res.cloudinary.com/kj187/image/upload/v1452503941/github_pullreq_nf58z3.png" alt="GitHub Pull Request widget"></p>
+
+<h2>
+<a id="requirements" class="anchor" href="#requirements" aria-hidden="true"><span class="octicon octicon-link"></span></a>Requirements</h2>
+
+<p><a href="https://github.com/fabiocaseri/dashing-js">Dashing-JS</a></p>
+
+<pre lang="ssh"><code>$ npm install -g dashing-js
+</code></pre>
+
+<p>Widget dependencies</p>
+
+<div class="highlight highlight-source-shell"><pre>$ npm install github
+$ npm install cron</pre></div>
+
+<h2>
+<a id="installation" class="anchor" href="#installation" aria-hidden="true"><span class="octicon octicon-link"></span></a>Installation</h2>
+
+<div class="highlight highlight-source-shell"><pre>$ dashing-js install https://github.com/kj187/dashing-github_pullrequests/archive/master.zip</pre></div>
+
+<p>Move the <code>widgets/github_pullrequests/config.github_pullrequests.sample.js</code> file to the dashboard root directory and rename it to <code>config.github_pullrequests.js</code>. </p>
+
+<h2>
+<a id="usage" class="anchor" href="#usage" aria-hidden="true"><span class="octicon octicon-link"></span></a>Usage</h2>
+
+<p>To include the widget on your dashboard, add the following snippet to the dashboard layout file:</p>
+
+<div class="highlight highlight-text-html-basic"><pre>&lt;<span class="pl-ent">li</span> <span class="pl-e">data-row</span>=<span class="pl-s"><span class="pl-pds">"</span>1<span class="pl-pds">"</span></span> <span class="pl-e">data-col</span>=<span class="pl-s"><span class="pl-pds">"</span>1<span class="pl-pds">"</span></span> <span class="pl-e">data-sizex</span>=<span class="pl-s"><span class="pl-pds">"</span>1<span class="pl-pds">"</span></span> <span class="pl-e">data-sizey</span>=<span class="pl-s"><span class="pl-pds">"</span>1<span class="pl-pds">"</span></span> <span class="pl-e">style</span>=<span class="pl-s"><span class="pl-pds">"</span>background-color:#666<span class="pl-pds">"</span></span>&gt;
+  &lt;<span class="pl-ent">div</span> <span class="pl-e">data-title</span>=<span class="pl-s"><span class="pl-pds">"</span>Pull Requests<span class="pl-pds">"</span></span> <span class="pl-e">data-id</span>=<span class="pl-s"><span class="pl-pds">"</span>github_pullrequests<span class="pl-pds">"</span></span> <span class="pl-e">data-view</span>=<span class="pl-s"><span class="pl-pds">"</span>GithubPullrequests<span class="pl-pds">"</span></span> <span class="pl-e">class</span>=<span class="pl-s"><span class="pl-pds">"</span>widget<span class="pl-pds">"</span></span>&gt;&lt;/<span class="pl-ent">div</span>&gt;
+  &lt;<span class="pl-ent">i</span> <span class="pl-e">class</span>=<span class="pl-s"><span class="pl-pds">"</span>fa fa-github-square icon-background<span class="pl-pds">"</span></span>&gt;&lt;/<span class="pl-ent">i</span>&gt;
+&lt;/<span class="pl-ent">li</span>&gt;</pre></div>
+
+<p>Or if you use Jade as your favorite template engine </p>
+
+<div class="highlight highlight-text-jade"><pre>li<span class="pl-c1">(</span><span class="pl-e">data-row</span>=<span class="pl-s">'1'</span>, <span class="pl-e">data-col</span>=<span class="pl-s">'1'</span>, <span class="pl-e">data-sizex</span>=<span class="pl-s">'1'</span>, <span class="pl-e">data-sizey</span>=<span class="pl-s">'1'</span>, <span class="pl-e">style</span>=<span class="pl-s">'background-color:#666'</span><span class="pl-c1">)</span>
+  div<span class="pl-c1">(</span><span class="pl-e">data-id</span>=<span class="pl-s">'github_pullrequests'</span>, <span class="pl-e">data-view</span>=<span class="pl-s">'GithubPullrequests'</span>, <span class="pl-e">data-title</span>=<span class="pl-s">'Pull Requests'</span>, <span class="pl-e">class</span>=<span class="pl-s">'widget'</span><span class="pl-c1">)</span>
+  i<span class="pl-c1">(</span><span class="pl-e">class</span>=<span class="pl-s">'fa fa-github-square icon-background'</span><span class="pl-c1">)</span></pre></div>
+
+<h2>
+<a id="settings" class="anchor" href="#settings" aria-hidden="true"><span class="octicon octicon-link"></span></a>Settings</h2>
+
+<div class="highlight highlight-source-js"><pre><span class="pl-smi">module</span>.<span class="pl-smi">exports</span> <span class="pl-k">=</span> {
+
+    eventName<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>github_pullrequests<span class="pl-pds">'</span></span>,
+
+    client<span class="pl-k">:</span> {
+        userAgent<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>PullRequest Dashboard<span class="pl-pds">'</span></span>,
+        debug<span class="pl-k">:</span> <span class="pl-c1">false</span>,
+        protocol<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>https<span class="pl-pds">'</span></span>,
+        host<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>api.github.com<span class="pl-pds">'</span></span>,
+        auth<span class="pl-k">:</span> {
+            token<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>xxx<span class="pl-pds">'</span></span>
+        },
+    },
+
+    repositories<span class="pl-k">:</span> [
+        {
+            cronInterval<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>1 * * * * *<span class="pl-pds">'</span></span>,
+            id<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>github-repository-name<span class="pl-pds">'</span></span>,
+            label<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>repository-label<span class="pl-pds">'</span></span>,
+            owner<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>kj187<span class="pl-pds">'</span></span>,
+            state<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>open<span class="pl-pds">'</span></span>
+        },
+        {
+            cronInterval<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>1 * * * * *<span class="pl-pds">'</span></span>,
+            id<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>github-repository-name<span class="pl-pds">'</span></span>,
+            label<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>repository-label2<span class="pl-pds">'</span></span>,
+            owner<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>kj187<span class="pl-pds">'</span></span>,
+            state<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>open<span class="pl-pds">'</span></span>
+        }
+    ]
+
+}</pre></div>
+
+<h3>
+<a id="global-settings" class="anchor" href="#global-settings" aria-hidden="true"><span class="octicon octicon-link"></span></a>Global settings</h3>
+
+<table>
+<thead>
+<tr>
+<th>Setting</th>
+<th>Example</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>eventName</td>
+<td>github_pullrequests</td>
+<td>Event name, must be the same as the <code>data-id</code> attribute</td>
+</tr>
+</tbody>
+</table>
+
+<h3>
+<a id="client-settings" class="anchor" href="#client-settings" aria-hidden="true"><span class="octicon octicon-link"></span></a>Client settings</h3>
+
+<table>
+<thead>
+<tr>
+<th>Setting</th>
+<th>Example</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>userAgent</td>
+<td>PullRequest Dashboard</td>
+<td>GitHub is happy with an unique user agent</td>
+</tr>
+<tr>
+<td>debug</td>
+<td>false</td>
+<td>Debug mode</td>
+</tr>
+<tr>
+<td>protocol</td>
+<td>https</td>
+<td>Http protocol of GitHub</td>
+</tr>
+<tr>
+<td>host</td>
+<td>api.github.com</td>
+<td>Host of GitHub</td>
+</tr>
+<tr>
+<td>auth.token</td>
+<td>xxx</td>
+<td>Personal GitHub API token. <a href="https://github.com/blog/1509-personal-api-tokens">Blogpost</a>
+</td>
+</tr>
+</tbody>
+</table>
+
+<h3>
+<a id="repositories-settings" class="anchor" href="#repositories-settings" aria-hidden="true"><span class="octicon octicon-link"></span></a>Repositories settings</h3>
+
+<p>You can define multiple repositories</p>
+
+<table>
+<thead>
+<tr>
+<th>Setting</th>
+<th>Example</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>cronInterval</td>
+<td>1 * * * * *</td>
+<td>Click <a href="https://github.com/ncb000gt/node-cron">here</a> for available cron patterns</td>
+</tr>
+<tr>
+<td>id</td>
+<td>github-repository-name</td>
+<td>Must be the GitHub repository name</td>
+</tr>
+<tr>
+<td>label</td>
+<td>repository-label</td>
+<td>The label of the repository which is displayed in the widget</td>
+</tr>
+<tr>
+<td>owner</td>
+<td>kj187</td>
+<td>The owner of the repository</td>
+</tr>
+<tr>
+<td>state</td>
+<td>open</td>
+<td>The state of pull requests, could be open or closed</td>
+</tr>
+</tbody>
+</table>
+      </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">Dashing-GitHub pullrequests maintained by <a href="https://github.com/kj187">kj187</a></p>
+        <p>Published with <a href="https://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
+    
+
+  </body>
+</html>
