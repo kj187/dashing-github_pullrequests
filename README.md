@@ -17,7 +17,7 @@ The GitHub PullRequest widget is a widget which provides a list of configured re
 $ npm install -g dashing-js
 ```
 
-Jenkins Job Widget dependencies
+Widget dependencies
 ```shell
 $ npm install github
 $ npm install cron
