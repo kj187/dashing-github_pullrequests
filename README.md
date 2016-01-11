@@ -106,3 +106,13 @@ You can define multiple repositories
 | label     | repository-label  | The label of the repository which is displayed in the widget |
 | owner     | kj187  | The owner of the repository |
 | state     | open  | The state of pull requests, could be open or closed |
+
+## Changelog
+
+### release-1.0.0
+* First release
+
+## Other Dashing-JS widgets
+Do you know that I also created some other Dashing-JS widgets? Try out
+
+* [Jenkins Job widget](http://goo.gl/X3WM3r)
