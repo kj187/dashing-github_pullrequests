@@ -1,0 +1,17 @@
+.widget-github-pullrequests {
+
+  h1.title {
+    font-size: 36px;
+    font-weight: bold;
+    margin: 0;
+  }
+
+  ul.repositories {
+    text-align: right;
+    margin: 19px 19px 0 0;
+
+    li.repository {
+      font-size: 26px;
+    }
+  }
+}
