@@ -20,7 +20,7 @@ GithubClient.authenticate({
 });
 
 config.repositories.forEach(function(repository) {
-  new cronJob(repository.cronInterval, function(){
+  new cronJob(repository.cronInterval, function() {
     GithubClient.pullRequests.getAll({
         repo: repository.id,
         user: repository.owner,
