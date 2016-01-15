@@ -1,6 +1,6 @@
 
 var github = require('github');
-var config = require("../config.github_pullrequests");
+var config = require("../config/config.github_pullrequests");
 var cronJob = require('cron').CronJob;
 
 var GithubClient = new github({

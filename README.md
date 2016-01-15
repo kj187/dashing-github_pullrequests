@@ -27,7 +27,21 @@ $ npm install cron
 ```shell
 $ dashing-js install https://github.com/kj187/dashing-github_pullrequests/archive/master.zip
 ```
-Move the `widgets/github_pullrequests/config.github_pullrequests.sample.js` file to the dashboard root directory and rename it to `config.github_pullrequests.js`. 
+Create a new directory `config` on your root directory.
+Move the `widgets/github_pullrequests/config.github_pullrequests.sample.js` file to this directory and rename it to `config.github_pullrequests.js`.
+ 
+```
+assets/
+  ...
+config/
+  config.github_pullrequests.js
+  ...
+dashboards/
+  ...
+jobs/
+  ...
+...
+```
 
 ## Usage
 To include the widget on your dashboard, add the following snippet to the dashboard layout file:
