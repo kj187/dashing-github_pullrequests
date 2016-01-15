@@ -59,7 +59,20 @@ $ npm install cron</pre></div>
 
 <div class="highlight highlight-source-shell"><pre>$ dashing-js install https://github.com/kj187/dashing-github_pullrequests/archive/master.zip</pre></div>
 
-<p>Move the <code>widgets/github_pullrequests/config.github_pullrequests.sample.js</code> file to the dashboard root directory and rename it to <code>config.github_pullrequests.js</code>. </p>
+<p>Create a new directory <code>config</code> on your root directory.
+Move the <code>widgets/github_pullrequests/config.github_pullrequests.sample.js</code> file to this directory and rename it to <code>config.github_pullrequests.js</code>.</p>
+
+<pre><code>assets/
+  ...
+config/
+  config.github_pullrequests.js
+  ...
+dashboards/
+  ...
+jobs/
+  ...
+...
+</code></pre>
 
 <h2>
 <a id="usage" class="anchor" href="#usage" aria-hidden="true"><span class="octicon octicon-link"></span></a>Usage</h2>
