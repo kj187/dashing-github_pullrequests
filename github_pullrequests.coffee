@@ -4,7 +4,6 @@ class Dashing.GithubPullrequests extends Dashing.Widget
     # This is fired when the widget is done being rendered
 
   onData: (data) ->
-
     truncateString = (str, length) ->
       if str.length > length then str.substring(0, length - 3) + '...' else str
 
