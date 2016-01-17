@@ -1,4 +1,6 @@
 .widget-github-pullrequests {
+  background-color: #666;
+  vertical-align: top !important;
 
   h1.title {
     font-size: 36px;
@@ -6,12 +8,28 @@
     margin: 0;
   }
 
-  ul.repositories {
+  div.repositories {
     text-align: right;
     margin: 19px 19px 0 0;
 
-    li.repository {
+    div.repository {
       font-size: 26px;
+
+      .value {
+        margin-bottom: 5px;
+        background: #999;
+        border-radius: 0.5em;
+        -moz-border-radius: 0.5em;
+        -webkit-border-radius: 0.5em;
+        color: #ffffff;
+        display: inline-block;
+        font-weight: bold;
+        line-height: 1.6em;
+        margin-right: 5px;
+        text-align: center;
+        width: 1.6em;
+      }
+
     }
   }
 }
