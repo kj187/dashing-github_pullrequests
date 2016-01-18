@@ -10,6 +10,9 @@ The GitHub PullRequest widget is a widget which provides a list of configured re
 
 ![GitHub Pull Request widget](http://res.cloudinary.com/kj187/image/upload/v1453148682/dashing-pullreq_naai9p.png)
 
+## Example Dashboard
+![Example](http://res.cloudinary.com/kj187/image/upload/v1453152816/dashboard_example_stb2dc.png)
+
 ## Requirements
 
 [Dashing-JS](https://github.com/fabiocaseri/dashing-js)
