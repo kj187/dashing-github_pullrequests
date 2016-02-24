@@ -1,7 +1,7 @@
-
 var github = require('github');
 var config = require("../config/config.github_pullrequests");
 var cronJob = require('cron').CronJob;
+var jobs = [];
 
 var GithubClient = new github({
     version:  '3.0.0',
@@ -20,20 +20,31 @@ GithubClient.authenticate({
 });
 
 config.repositories.forEach(function(repository) {
-  new cronJob(repository.cronInterval, function() {
-    GithubClient.pullRequests.getAll({
-        repo: repository.id,
-        user: repository.owner,
-        state: repository.state,
-        per_page: 1000
-    }, function(error, data) {
-        if (error) return console.log('Error:', error);
+    var update = function() {
+        GithubClient.pullRequests.getAll({
+            repo: repository.id,
+            user: repository.owner,
+            state: repository.state,
+            per_page: 1000
+        }, function(error, data) {
+            if (error) return console.log('Error:', error);
 
-        send_event(config.eventName, {
-            label: repository.label,
-            value: data.length,
-            url: 'https://github.com/' + repository.owner + '/' + repository.id + '/pulls'
+            send_event(config.eventName, {
+                label: repository.label,
+                value: data.length,
+                url: 'https://github.com/' + repository.owner + '/' + repository.id + '/pulls'
+            });
         });
-    });
-  }, null, true, null);
+    };
+
+    jobs.push(update);
+    new cronJob(repository.cronInterval, update, null, true, null);
 });
+
+function updateAll() {
+    jobs.forEach(function(update){
+        update();
+    });
+}
+
+module.exports.update = updateAll;
