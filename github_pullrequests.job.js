@@ -28,7 +28,12 @@ config.repositories.forEach(function(repository) {
         per_page: 1000
     }, function(error, data) {
         if (error) return console.log('Error:', error);
-        send_event(config.eventName, {label: repository.label, value: data.length});
+
+        send_event(config.eventName, {
+            label: repository.label,
+            value: data.length,
+            url: 'https://github.com/' + repository.owner + '/' + repository.id + '/pulls'
+        });
     });
   }, null, true, null);
 });
