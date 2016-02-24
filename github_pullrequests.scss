@@ -11,6 +11,8 @@
   div.repositories {
     text-align: right;
     margin: 19px 19px 0 0;
+    position: relative;
+    z-index: 10;
 
     div.repository {
       font-size: 26px;
