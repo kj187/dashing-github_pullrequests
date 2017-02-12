@@ -23,7 +23,7 @@ config.repositories.forEach(function(repository) {
     var update = function() {
         GithubClient.pullRequests.getAll({
             repo: repository.id,
-            user: repository.owner,
+            owner: repository.owner,
             state: repository.state,
             per_page: 1000
         }, function(error, data) {
